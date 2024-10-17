@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>XSS Test Application</h2>
+
+  <!-- Input form for user data -->
+  <div>
+    <label for="userInput">Enter some text:</label>
+    <input id="userInput" type="text" [(ngModel)]="userInput" (ngModelChange)="updateUnsafeContent()" placeholder="Type something here">
+  </div>
+
+  <br>
+
+  <!-- Unsafe rendering with innerHTML -->
+  <div>
+    <h3>Unsafe Output:</h3>
+    <div [innerHTML]="unsafeContent"></div>
+  </div>
+
+  <br>
+
+  <!-- Safe rendering using Angular's binding -->
+  <div>
+    <h3>Safe Output:</h3>
+    <div>{{ userInput }}</div>
+  </div>
+</div>
